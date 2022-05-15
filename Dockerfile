@@ -2,7 +2,9 @@
 FROM ruby:3.0.2
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 
-USER root
+ENV BUNDLER_VERSION=2.1.4
+RUN gem install bundler:2.1.4
+
 COPY Gemfile.lock .
 COPY Gemfile .
 RUN bundle install
