@@ -2,7 +2,7 @@
 FROM ruby:3.0.2
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 COPY . .
-RUN rake assets:clobber && bundle install
+RUN bundle install
 
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
