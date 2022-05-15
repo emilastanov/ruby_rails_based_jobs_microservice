@@ -1,0 +1,441 @@
+---
+openapi: 3.0.1
+info:
+  title: Jobs service
+  version: v1
+paths:
+  "/achievements":
+    get:
+      summary: Get achievement or list of achievements.
+      tags:
+      - Achievements
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          properties:
+            id:
+              type: integer
+      responses:
+        '200':
+          description: ''
+    post:
+      summary: Create achievement.
+      tags:
+      - Achievements
+      parameters: []
+      responses:
+        '201':
+          description: Achievement created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                logotype:
+                  type: string
+    delete:
+      summary: Delete achievement by id.
+      tags:
+      - Achievements
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          required:
+          - id
+      responses:
+        '200':
+          description: Achievement has been deleted.
+    patch:
+      summary: Update data of achievement.
+      tags:
+      - Achievements
+      parameters: []
+      responses:
+        '201':
+          description: Achievement updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                logotype:
+                  type: string
+  "/companies":
+    get:
+      summary: Get company or list of companies.
+      tags:
+      - Companies
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          properties:
+            id:
+              type: integer
+      responses:
+        '200':
+          description: ''
+    post:
+      summary: Create company.
+      tags:
+      - Companies
+      parameters: []
+      responses:
+        '201':
+          description: Company created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                founding_date:
+                  type: datetime
+                logotype:
+                  type: string
+    delete:
+      summary: Delete company by id.
+      tags:
+      - Companies
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          required:
+          - id
+      responses:
+        '200':
+          description: Company has been deleted.
+    patch:
+      summary: Update data of company.
+      tags:
+      - Companies
+      parameters: []
+      responses:
+        '201':
+          description: Company updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                title:
+                  type: string
+                description:
+                  type: string
+                founding_date:
+                  type: datetime
+                logotype:
+                  type: string
+  "/company_achievements":
+    post:
+      summary: Create company and achievements link.
+      tags:
+      - Companies
+      parameters: []
+      responses:
+        '201':
+          description: Link created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                company:
+                  type: string
+                achievement:
+                  type: string
+    delete:
+      summary: Delete link by id.
+      tags:
+      - Companies
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          required:
+          - id
+      responses:
+        '200':
+          description: Link has been deleted.
+  "/job_posting":
+    get:
+      summary: Get job posting or list of companies.
+      tags:
+      - Job posting
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          properties:
+            id:
+              type: integer
+            vacancy_id:
+              type: integer
+            profile_id:
+              type: integer
+      responses:
+        '200':
+          description: ''
+    post:
+      summary: Create job posting.
+      tags:
+      - Job posting
+      parameters: []
+      responses:
+        '201':
+          description: Company created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                profile_id:
+                  type: integer
+                vacancy_id:
+                  type: integer
+                state:
+                  type: string
+    delete:
+      summary: Delete job posting by id.
+      tags:
+      - Job posting
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          required:
+          - id
+      responses:
+        '200':
+          description: Job posting has been deleted.
+    patch:
+      summary: Update state of job posting.
+      tags:
+      - Job posting
+      parameters: []
+      responses:
+        '201':
+          description: Job posting state has been updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                state:
+                  type: string
+  "/reviews":
+    get:
+      summary: Get review or list of reviews.
+      tags:
+      - Reviews
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          properties:
+            id:
+              type: integer
+            company_id:
+              type: integer
+      responses:
+        '200':
+          description: ''
+    post:
+      summary: Create review.
+      tags:
+      - Reviews
+      parameters: []
+      responses:
+        '201':
+          description: Review created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+                team_rating:
+                  type: integer
+                salary_rating:
+                  type: integer
+                bureaucracy_rating:
+                  type: integer
+                degree_of_workload:
+                  type: integer
+                company_id:
+                  type: integer
+    patch:
+      summary: Update data of review.
+      tags:
+      - Reviews
+      parameters: []
+      responses:
+        '201':
+          description: Review updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                text:
+                  type: string
+                team_rating:
+                  type: integer
+                salary_rating:
+                  type: integer
+                bureaucracy_rating:
+                  type: integer
+                degree_of_workload:
+                  type: integer
+  "/vacancies":
+    get:
+      summary: Get vacancy or list of vacancies.
+      tags:
+      - Vacancies
+      parameters:
+      - name: vacancy
+        in: query
+        schema:
+          type: query
+          properties:
+            id:
+              type: integer
+            company_id:
+              type: integer
+      responses:
+        '200':
+          description: ''
+    post:
+      summary: Create vacancy.
+      tags:
+      - Vacancies
+      parameters: []
+      responses:
+        '201':
+          description: Vacancy created
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                experience:
+                  type: string
+                work_type:
+                  type: string
+                responsibilities:
+                  type: string
+                requirements:
+                  type: string
+                salary_min:
+                  type: integer
+                salary_max:
+                  type: integer
+                work_conditions:
+                  type: string
+                additional_info:
+                  type: string
+                address:
+                  type: string
+                company_id:
+                  type: integer
+    delete:
+      summary: Delete vacancy by id.
+      tags:
+      - Vacancies
+      parameters:
+      - name: id
+        in: query
+        schema:
+          type: query
+          required:
+          - id
+      responses:
+        '200':
+          description: Vacancy has been deleted.
+    patch:
+      summary: Update data of vacancy.
+      tags:
+      - Vacancies
+      parameters: []
+      responses:
+        '201':
+          description: Vacancy updated
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: integer
+                title:
+                  type: string
+                experience:
+                  type: string
+                work_type:
+                  type: string
+                responsibilities:
+                  type: string
+                requirements:
+                  type: string
+                salary_min:
+                  type: integer
+                salary_max:
+                  type: integer
+                work_conditions:
+                  type: string
+                additional_info:
+                  type: string
+                address:
+                  type: string
