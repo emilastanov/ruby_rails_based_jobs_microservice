@@ -10,7 +10,7 @@ gem "bootsnap", require: false
 gem "rswag"
 
 group :development, :test do
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
-  gem "rspec-rails"
   gem "rswag-specs"
+  gem "rspec-rails"
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
