@@ -2,7 +2,8 @@
 FROM ruby:3.0.2
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 
-COPY --chown=docker:docker Gemfile.lock ./
+USER root
+COPY Gemfile.lock .
 COPY Gemfile .
 RUN bundle install
 COPY . .
