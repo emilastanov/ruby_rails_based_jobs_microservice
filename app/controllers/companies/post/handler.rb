@@ -1,11 +1,9 @@
 
-require_relative '../middlewares/params'
-require_relative '../../middlewares/create_object'
-
-module CompanyCreateHandler
-  include Params
+module Companies::Post::Handler
+  include Middlewares::CreateObject
+  include Companies::Middlewares::Params
   def post
-    render json: create_object(Company, get_company_params)
+    render json: make_create_response(Company, get_company_params)
   end
 
 end

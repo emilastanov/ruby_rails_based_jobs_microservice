@@ -1,11 +1,7 @@
-require_relative './vacancies/get/handler'
-require_relative './vacancies/post/handler'
-require_relative './vacancies/delete/handler'
-require_relative './vacancies/patch/handler'
 
 class VacanciesController < ApplicationController
-  include VacancyGetHandler
-  include VacancyCreateHandler
-  include VacancyUpdateHandler
-  include VacancyDeleteHandler
+  include Vacancies::Get::Handler
+  include Vacancies::Patch::Handler
+  include Vacancies::Post::Handler
+  include Vacancies::Delete::Handler
 end

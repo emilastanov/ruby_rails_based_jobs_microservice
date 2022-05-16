@@ -1,9 +1,8 @@
 
-require_relative '../middlewares/params'
-require_relative '../../middlewares/update_object'
-
-module AchievementUpdateHandler
+module Achievements::Patch::Handler
+  include Achievements::Middlewares::Params
+  include Middlewares::UpdateObject
   def patch
-    render json: update_object(Achievement, get_company_params)
+    render json: make_update_response(Achievement, get_company_params)
   end
 end

@@ -1,14 +1,9 @@
 require 'swagger_helper'
 
-require_relative '../../../app/controllers/companies/get/document'
-require_relative '../../../app/controllers/companies/post/document'
-require_relative '../../../app/controllers/companies/delete/document'
-require_relative '../../../app/controllers/companies/patch/document'
-
 
 RSpec.describe 'api/companies', type: :request do
-  document_of_get
-  document_of_post
-  document_of_delete
-  document_of_patch
+  Companies::Delete::Document.companies_delete_document
+  Companies::Post::Document.companies_post_document
+  Companies::Patch::Document.companies_patch_document
+  Companies::Get::Document.companies_get_document
 end

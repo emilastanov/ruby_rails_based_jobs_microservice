@@ -1,8 +1,7 @@
 
-require_relative '../../middlewares/delete_object'
-
-module VacancyDeleteHandler
+module Vacancies::Delete::Handler
+  include Middlewares::DeleteObject
   def delete
-    render json: delete_object(Vacancy, params)
+    render json: make_delete_response(Vacancy, params)
   end
 end

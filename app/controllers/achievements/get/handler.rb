@@ -1,8 +1,7 @@
 
-require_relative '../../middlewares/get_list_or_object'
-
-module AchievementGetHandler
+module Achievements::Get::Handler
+  include Middlewares::GetListOrObject
   def get
-    render json: get_list_or_object(Achievement, params)
+    render json: make_query_response(Achievement, params)
   end
 end

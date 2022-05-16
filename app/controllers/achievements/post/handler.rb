@@ -1,10 +1,8 @@
 
-require_relative '../middlewares/params'
-require_relative '../../middlewares/create_object'
-
-module AchievementCreateHandler
-  include Params
+module Achievements::Post::Handler
+  include Achievements::Middlewares::Params
+  include Middlewares::CreateObject
   def post
-    render json: create_object(Achievement, get_achievement_params)
+    render json: make_create_response(Achievement, get_achievement_params)
   end
 end

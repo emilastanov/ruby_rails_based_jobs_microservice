@@ -1,11 +1,9 @@
 
-require_relative '../middlewares/params'
-require_relative '../../middlewares/create_object'
-
-module ReviewCreateHandler
-  include Params
+module Reviews::Post::Handler
+  include Reviews::Middlewares::Params
+  include Middlewares::CreateObject
   def post
-    render json: create_object(Review, get_review_params, child_of: {model: Company, field: :company_id})
+    render json: make_create_response(Review, get_review_params, child_of: {model: Company, field: :company_id})
   end
 
 end

@@ -1,8 +1,7 @@
 
-require_relative '../../middlewares/get_list_or_object'
-
-module CompanyGetHandler
+module Companies::Get::Handler
+  include Middlewares::GetListOrObject
   def get
-    render json: get_list_or_object(Company, params, links: [:achievements])
+    render json: make_query_response(Company, params, links: [:achievements])
   end
 end

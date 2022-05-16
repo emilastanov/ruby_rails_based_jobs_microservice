@@ -1,8 +1,7 @@
 
-require_relative '../../middlewares/delete_object'
-
-module AchievementDeleteHandler
+module Achievements::Delete::Handler
+  include Middlewares::DeleteObject
   def delete
-    render json: delete_object(Achievement, params)
+    render json: make_delete_response(Achievement, params)
   end
 end

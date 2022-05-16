@@ -1,8 +1,7 @@
 
-require_relative '../../middlewares/delete_object'
-
-module CompanyDeleteHandler
+module Companies::Delete::Handler
+  include Middlewares::DeleteObject
   def delete
-    render json: delete_object(Company, params)
+    render json: make_delete_response(Company, params)
   end
 end

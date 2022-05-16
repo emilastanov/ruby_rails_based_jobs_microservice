@@ -1,10 +1,12 @@
 
-def delete_object(model, params)
-  object = model.find(params[:id])
-  object.destroy
+module Middlewares::DeleteObject
+  def make_delete_response(model, params)
+    object = model.find(params[:id])
+    object.destroy
 
-  {
-    status: :deleted,
-    company: object
-  }
+    {
+      status: :deleted,
+      company: object
+    }
+  end
 end

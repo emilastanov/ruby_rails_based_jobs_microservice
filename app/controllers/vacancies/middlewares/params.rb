@@ -1,5 +1,5 @@
 
-module Params
+module Vacancies::Middlewares::Params
   private
   def get_vacancy_params
     params.require(:vacancy).permit(

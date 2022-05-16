@@ -1,5 +1,5 @@
 
-module Params
+module Achievements::Middlewares::Params
   private
   def get_achievement_params
     params.require(:achievement).permit(

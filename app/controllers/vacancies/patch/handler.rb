@@ -1,9 +1,8 @@
 
-require_relative '../middlewares/params'
-require_relative '../../middlewares/update_object'
-
-module VacancyUpdateHandler
+module Vacancies::Patch::Handler
+  include Vacancies::Middlewares::Params
+  include Middlewares::UpdateObject
   def patch
-    render json: update_object(Vacancy, get_vacancy_params)
+    render json: make_update_response(Vacancy, get_vacancy_params)
   end
 end

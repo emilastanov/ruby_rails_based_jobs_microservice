@@ -1,8 +1,7 @@
 
-require_relative '../../middlewares/get_list_or_object'
-
-module VacancyGetHandler
+module Vacancies::Get::Handler
+  include Middlewares::GetListOrObject
   def get
-    render json: get_list_or_object(Vacancy, params, search_by: [:company_id])
+    render json: make_query_response(Vacancy, params, search_by: [:company_id])
   end
 end

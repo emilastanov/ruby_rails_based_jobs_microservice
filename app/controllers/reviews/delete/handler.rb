@@ -1,8 +1,7 @@
 
-require_relative '../../middlewares/delete_object'
-
-module ReviewDeleteHandler
+module Reviews::Delete::Handler
+  include Middlewares::DeleteObject
   def delete
-    render json: delete_object(Review, params)
+    render json: make_delete_response(Review, params)
   end
 end

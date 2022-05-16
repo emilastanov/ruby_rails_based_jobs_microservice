@@ -1,8 +1,6 @@
 
-require_relative '../../middlewares/get_list_or_object'
-
-module ReviewGetHandler
+module Reviews::Get::Handler
   def get
-    render json: get_list_or_object(Review, params, search_by: [:company_id])
+    render json: make_query_response(Review, params, search_by: [:company_id])
   end
 end

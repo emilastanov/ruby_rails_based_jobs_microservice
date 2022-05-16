@@ -1,9 +1,8 @@
 
-require_relative '../middlewares/params'
-require_relative '../../middlewares/update_object'
-
-module ReviewUpdateHandler
+module Reviews::Patch::Handler
+  include Middlewares::UpdateObject
+  include Reviews::Middlewares::Params
   def patch
-    render json: update_object(Review, get_review_params)
+    render json: make_update_response(Review, get_review_params)
   end
 end

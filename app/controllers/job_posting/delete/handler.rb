@@ -1,8 +1,7 @@
 
-require_relative '../../middlewares/delete_object'
-
-module JobPostingDeleteHandler
+module JobPosting::Delete::Handler
+  include Middlewares::DeleteObject
   def delete
-    render json: delete_object(JobPosting, params)
+    render json: make_delete_response(JobPosting, params)
   end
 end

@@ -1,5 +1,5 @@
 
-module Params
+module Companies::Middlewares::Params
   private
   def get_company_params
     params.require(:company).permit(

@@ -1,5 +1,5 @@
 
-module Params
+module Reviews::Middlewares::Params
   private
   def get_review_params
     params.require(:review).permit(
