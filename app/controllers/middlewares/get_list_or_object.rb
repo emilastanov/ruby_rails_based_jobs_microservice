@@ -25,12 +25,7 @@ module Middlewares::GetListOrObject
 
     if object_id
       object = model.find(object_id)
-
-      additional_attributes = {}
-      links.each do |link|
-        additional_attributes[link] = object.send(link)
-      end
-      object = object.attributes.merge(additional_attributes)
+      object = object.attributes.merge links.map { |link| [link, object.send(link)]}.to_h
 
       {
         status: :ok,
